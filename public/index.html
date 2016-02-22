@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="CarsApp">
+<head>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="CarsCtrl">
+<h2>cars list</h2>
+
+<div ng-repeat="car in allCars">
+  {{car.id}} {{car.name}}
+  <input type="text"
+         ng-change="car.isChanged = true"
+         ng-class="{changed: car.isChanged}"
+         ng-model="car.capacity">
+  <button class="ng-hide"
+          ng-click="saveCar(car)"
+          ng-show="car.isChanged">save</button>
+</div>
+</body>
+</html>
